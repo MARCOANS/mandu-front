@@ -1,14 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ConfigProvider } from 'antd';
+import { Provider } from "react-redux";
+import store from "./redux/store/index";
+import esES from 'antd/lib/locale/es_ES';
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <ConfigProvider locale={esES}>
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>
+  </ConfigProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
